@@ -6,7 +6,7 @@
 # To get this site running you can do the following
 
 1. Create virtual environment to hold the packages required for this project.
-2. To create a virtual environment you can do the following on your command line
+2. To create a virtual environment you can do the following on your command line, be in the root directory (where **manage.py** lies while performing the following commands)
 
 `$ python3 -m venv venv`
 `$ source venv/bin/activate` for linux/mac
