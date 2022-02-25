@@ -1,0 +1,19 @@
+{% extends './base.html' %}
+
+{% block content %}
+    <h1>These are the availabel doctors</h1>
+
+    <div>
+        {% for doctor in doctors %}
+        <div class="card text-dark bg-info mb-3 ms-5" style="max-width: 30rem;">
+            <div class="card-header">{{doctor.name}}</div>
+            <div class="card-body">
+              <h5 class="card-title">{{doctor.type}}</h5>
+              <p class="card-text">Phone: {{doctor.phone}} Email: {{doctor.email}}</p>
+              <p class="card-text">Address: {{doctor.clinic_address}}</p>
+              <a href="{% url 'appoint' %}" class="btn btn-success">Appoint</a>
+            </div>
+          </div>
+        {% endfor %}
+    </div>
+{% endblock %}

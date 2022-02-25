@@ -1,0 +1,23 @@
+{% extends './base.html' %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        {% if appointments %}
+        <h1>Your appointments</h1>
+        {% for appointment in appointments %}
+        <div class="card text-white bg-dark mb-3 ms-5 mt-5" style="max-width: 40rem;">
+            <div class="card-header">Appointment time: {{appointment.date}}</div>
+            <div class="card-body">
+              <h5 class="card-title">{{appointment}}</h5>
+              <p class="mt-3"><a class="btn btn-primary" href="{% url 'postpone' appointment.id %}" >Reschedule</a> <a class="ms-3 btn btn-danger" href="{% url 'delete' appointment.id %}">Cancel</a></p>
+            </div>
+        </div>
+        {% endfor %}
+        {% else %}
+            <h1>Seems like you are healthy</h1>
+        {% endif %}
+    {% else %}
+        <h1>Login to view your appointments</h1>
+    {% endif %}
+    
+{% endblock  %}

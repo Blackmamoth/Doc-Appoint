@@ -1,0 +1,11 @@
+{% extends './base.html' %}
+
+{% block content %}
+    <h1>Are you sure you want to delete your appointment</h1>
+    <p>{{appointment}}</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Cancel</button><br>
+        <a href="{% url 'home' %}">Go Back</a>
+    </form>
+{% endblock %}

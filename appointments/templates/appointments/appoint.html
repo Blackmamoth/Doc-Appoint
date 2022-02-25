@@ -1,0 +1,42 @@
+{% extends './base.html' %}
+
+{% block content %}
+    <div>
+        <h1>Schedule Appointment</h1>
+        {% if form.non_field_errors %}
+        <div class="alert alert-info" role="alert">
+            {% for error in form.non_field_errors %}
+            <p>{{ error }}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+        <form method="post" class="mt-5 card p-3 border-dark border-2 rounded">
+            {% csrf_token %}
+
+            <div class="mb-3 mt-3">
+                <label class="form-label h3 text-dark">{{form.doctor.label}}</label>
+                {{form.doctor}}
+            </div>
+
+            <div class="mb-3 mt-3">
+                <label class="form-label h3 text-dark">{{form.date.label}}</label>
+                {{form.date}}
+            </div>
+
+            <div class="mb-3 mb-3">
+                <label class="form-label h3 text-dark">{{form.checkup_for.label}}</label>
+                {{form.checkup_for}}
+            </div>
+
+
+            <div class="mb-3 mt-3">
+                <button type="submit" class="btn btn-outline-primary btn-lg">Appoint</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.querySelectorAll('input').forEach(input => input.classList.add('form-control'))
+        document.querySelectorAll('select').forEach(select => select.classList.add('form-control'))
+    </script>
+{% endblock  %}
